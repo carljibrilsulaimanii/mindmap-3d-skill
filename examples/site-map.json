@@ -1,0 +1,41 @@
+{
+  "title": "Acme Site Map",
+  "subtitle": "Example data. Drag to rotate, scroll to zoom, click a page to see its findings.",
+  "statuses": {
+    "ok": ["#3ddc84", "Works"],
+    "broken": ["#ff5252", "Broken"],
+    "old": ["#ffb020", "Outdated"],
+    "ext": ["#4da3ff", "External"],
+    "hub": ["#ffffff", "Group hub"]
+  },
+  "nodes": [
+    {"id": "https://example.com", "label": "example.com", "kind": "root", "group": "Website", "status": "hub"},
+    {"id": "hub:Website", "label": "Website pages", "kind": "hub", "group": "Website", "status": "hub"},
+    {"id": "hub:Checkout", "label": "Checkout", "kind": "hub", "group": "Checkout", "status": "hub"},
+    {"id": "hub:Outside", "label": "Outside links", "kind": "hub", "group": "Outside links", "status": "hub"},
+    {"id": "https://example.com/pricing", "label": "/pricing", "group": "Website", "status": "broken", "url": "https://example.com/pricing", "title": "Pricing", "notes": ["Buy button goes nowhere"]},
+    {"id": "https://example.com/about", "label": "/about", "group": "Website", "status": "ok", "url": "https://example.com/about"},
+    {"id": "https://example.com/blog/2024-launch", "label": "/blog/2024-launch", "group": "Website", "status": "old", "notes": ["Mentions a product that was retired"]},
+    {"id": "checkout:basic", "label": "Basic plan checkout", "group": "Checkout", "status": "ok", "notes": ["$29 a month"]},
+    {"id": "checkout:pro", "label": "Pro plan checkout", "group": "Checkout", "status": "broken", "notes": ["Payment link switched off"]},
+    {"id": "https://example.com/thanks", "label": "/thanks", "group": "Website", "status": "ok"},
+    {"id": "https://forum.example.org", "label": "Community forum", "group": "Outside links", "status": "ext"}
+  ],
+  "links": [
+    {"source": "https://example.com", "target": "hub:Website", "kind": "spine"},
+    {"source": "https://example.com", "target": "hub:Checkout", "kind": "spine"},
+    {"source": "https://example.com", "target": "hub:Outside", "kind": "spine"},
+    {"source": "hub:Website", "target": "https://example.com/pricing", "kind": "hub"},
+    {"source": "hub:Website", "target": "https://example.com/about", "kind": "hub"},
+    {"source": "hub:Website", "target": "https://example.com/blog/2024-launch", "kind": "hub"},
+    {"source": "hub:Website", "target": "https://example.com/thanks", "kind": "hub"},
+    {"source": "hub:Checkout", "target": "checkout:basic", "kind": "hub"},
+    {"source": "hub:Checkout", "target": "checkout:pro", "kind": "hub"},
+    {"source": "hub:Outside", "target": "https://forum.example.org", "kind": "hub"},
+    {"source": "https://example.com/pricing", "target": "checkout:basic", "kind": "flow"},
+    {"source": "https://example.com/pricing", "target": "checkout:pro", "kind": "bad"},
+    {"source": "checkout:basic", "target": "https://example.com/thanks", "kind": "good"},
+    {"source": "https://example.com/about", "target": "https://example.com/pricing", "kind": "extra"},
+    {"source": "https://example.com/blog/2024-launch", "target": "https://example.com/pricing", "kind": "extra"}
+  ]
+}

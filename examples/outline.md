@@ -1,0 +1,17 @@
+# Acme Website
+- Main menu [hub]
+  - Home page [ok]
+  - Pricing page [broken] Buy button goes nowhere (https://example.com/pricing)
+  - About page [ok]
+  - Careers page [old] Lists a role filled in 2024
+- Free classes [hub]
+  - Spring class sign-up [old] Class date has passed
+    - Confirmation page [ok]
+    - Replay page [ok]
+  - Webinar archive [ok]
+- Store [hub]
+  - Starter guide [ok]
+  - Workbook [broken] Product removed
+- Outside links [hub]
+  - Community forum [ext]
+  - Press article [ok]
